@@ -1,0 +1,15 @@
+{
+    "data": {
+        "cutomers": [
+            {
+                "id": "92A86DA3-040F-4D48-8CF2-839EBFD82912",
+                "name": "TM",
+                "contactPerson": "John Doe",
+                "phone": "909-864-8831",
+                "products": [
+                    "EMS_ADV"
+                ]
+            }
+        ]
+    }
+}

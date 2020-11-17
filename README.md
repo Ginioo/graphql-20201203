@@ -10,7 +10,7 @@ To run the presentation deck in development mode:
 npm start
 ```
 
-Edit the [`deck.mdx`](deck.mdx) file to get started.
+Edit the [`deck.mdx`](src/deck.mdx) file to get started.
 
 ## Exporting
 

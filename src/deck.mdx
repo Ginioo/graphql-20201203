@@ -1,0 +1,81 @@
+import {
+  CodeSurfer,
+  CodeSurferColumns,
+  Step,
+} from "code-surfer";
+import { github, vsDark,  } from "@code-surfer/themes";
+
+import iconGraphQL from './images/icon-graphql.png';
+
+export const theme = vsDark;
+
+# GraphQL
+
+<img src={iconGraphQL} alt="GraphQL" style={{ height: 100, width: 100}} />
+
+###### Describe your data, ask for what you want, and get predictable results
+
+---
+
+<CodeSurfer>
+
+```graphql title="Step 1: Describe your data" subtitle="Define your schema" file="./sample-1/schema.graphql"
+```
+
+</CodeSurfer>
+
+---
+
+<CodeSurferColumns themes={[vsDark, github]}>
+
+<Step>
+
+```graphql title="Step 2: Ask for what you want" subtitle="Payload" file="./sample-1/query.graphql"
+```
+
+```json
+To lookup customers with these information
+  - id
+  - name
+  - contactPerson
+  - phone
+  - products
+```
+
+</Step>
+
+<Step>
+
+```graphql title="Step 2: Ask for what you want" subtitle="Payload" file="./sample-1/query.graphql"
+```
+
+```json title="Step 3: Get predictable results" subtitle="Response" file="./sample-1/response.json"
+```
+
+</Step>
+
+</CodeSurferColumns>
+
+---
+
+# Congratulations 🎉
+
+---
+
+<CodeSurfer>
+
+```graphql title="Describe your data" subtitle="Define your schema" file="./sample-2/schema.graphql"
+```
+```diff 3:6
+```
+```diff 12[1:4]
+```
+```diff 12[5:13],13[5:14]
+```
+```diff 13[30:41]
+```
+```diff 16[5:20],17[5:6],18[5:8],19[5:17],20[5:9],21[5:12]
+```
+
+</CodeSurfer>
+
