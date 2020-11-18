@@ -1,6 +1,7 @@
-# MDX Deck + Code Surfer template
+# Weekly sharing on 2020-11-26
 
-This project was generated with the `npm init code-surfer-deck` command.
+## Topic: 
+GraphQL
 
 ## Development
 
