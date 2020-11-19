@@ -2,8 +2,6 @@
     customers {
         id
         name
-        contactPerson
-        phone
         products
     }
 }

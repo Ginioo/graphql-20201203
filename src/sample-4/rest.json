@@ -1,0 +1,10 @@
+{
+  "data": {
+    "member": {
+      "name": "Luke Skywalker",
+      "status": "active",
+      "bill": 9.64,
+      "...": ...
+    }
+  }
+}

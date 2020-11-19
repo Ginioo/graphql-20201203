@@ -29,7 +29,7 @@ export const theme = vsDark;
 
 <CodeSurfer>
 
-```graphql title="Step 1: Describe your data" subtitle="Define your schema" file="./sample-1/schema.graphql"
+```graphql title="Step 1: Describe your data" subtitle="schema" file="./sample-1/schema.graphql"
 ```
 
 </CodeSurfer>
@@ -40,15 +40,13 @@ export const theme = vsDark;
 
 <Step>
 
-```graphql title="Step 2: Ask for what you want" subtitle="Payload" file="./sample-1/query.graphql"
+```graphql title="Step 2: Ask for what you want" subtitle="query" file="./sample-1/query.graphql"
 ```
 
 ```json
 To lookup customers with these information
   - id
   - name
-  - contactPerson
-  - phone
   - products
 ```
 
@@ -56,10 +54,10 @@ To lookup customers with these information
 
 <Step>
 
-```graphql title="Step 2: Ask for what you want" subtitle="Payload" file="./sample-1/query.graphql"
+```graphql title="Step 2: Ask for what you want" subtitle="query" file="./sample-1/query.graphql"
 ```
 
-```json title="Step 3: Get predictable results" subtitle="Response" file="./sample-1/response.json"
+```json title="Step 3: Get predictable results" subtitle="data" file="./sample-1/response.json"
 ```
 
 </Step>
@@ -72,9 +70,13 @@ To lookup customers with these information
 
 ---
 
+⏪🔄 Play again 😛
+
+---
+
 <CodeSurfer>
 
-```graphql title="Describe your data" subtitle="Define your schema" file="./sample-1/schema.graphql"
+```graphql title="Describe your data" subtitle="schema" file="./sample-1/schema.graphql"
 ```
 ```diff 3:6
 ```
@@ -84,19 +86,164 @@ To lookup customers with these information
 ```
 ```diff 13[30:41]
 ```
-```diff 16[5:20],17[5:6],18[5:8],19[5:17],20[5:9],21[5:12]
+```diff 16:22
+```
+```diff 24:29
 ```
 
 </CodeSurfer>
 
 ---
 
-# GraphQL
-### &
-# REST
+<CodeSurfer>
+
+```graphql title="Ask for what you want" subtitle="query" file="./sample-1/query.graphql"
+```
+```diff 1,7
+```
+```diff 2[5:13]
+```
+```diff 3:5
+```
+
+</CodeSurfer>
+
+---
+
+Setup a GraphQL service
+
+---
+
+<CodeSurfer>
+
+```js showNumbers subtitle="src/index.js" file="./sample-3/index.js"
+```
+```diff 72
+```
+```diff 1
+```
+```diff 3:30
+```
+```diff 6:8
+```
+```diff 12:14
+```
+```diff 31:60
+```
+```diff 62:73
+```
+
+</CodeSurfer>
+
+---
+
+```shell
+$ node src/index.js
+
+🚀  Server ready at http://localhost:14000/
+```
+
+---
+
+### REST & GraphQL
 
 ---
 
 - to operate over a single endpoint via HTTP(S)
 - the least required request
 
+---
+
+<CodeSurfer>
+
+```js
+GET /customers?fields=id,name,products
+```
+```diff 1[15:39]
+```
+
+</CodeSurfer>
+
+---
+
+#### 舉例: 查詢 id=1000 這個會員的這個月的帳單金額
+
+---
+
+<CodeSurferColumns themes={[vsDark, github]}>
+
+<Step>
+
+```js title="REST"
+GET /member/1000?status=active&unit=USD&...
+```
+
+```json
+.
+```
+
+</Step>
+
+<Step>
+
+```js title="REST"
+GET /member/1000?status=active&unit=USD&...
+```
+
+```json file="./sample-4/rest.json"
+```
+
+</Step>
+
+</CodeSurferColumns>
+
+---
+
+<CodeSurferColumns themes={[vsDark, github]}>
+
+<Step>
+
+```graphql title="GraphQL"
+POST /graphql
+
+# query
+{
+  member(id: "1000", status: "active") {
+    name
+    status
+    bill(unit: USD)
+  }
+}
+```
+
+```json
+.
+```
+
+</Step>
+
+<Step>
+
+```graphql title="GraphQL"
+POST /graphql
+
+# query
+{
+  member(id: "1000", status: "active") {
+    name
+    status
+    bill(unit: USD)
+  }
+}
+```
+
+```json file="./sample-4/graphql.json"
+```
+
+</Step>
+
+</CodeSurferColumns>
+
+---
+
+# Q&A
