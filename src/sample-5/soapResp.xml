@@ -1,0 +1,13 @@
+<SOAP-ENV:Envelope xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+                   xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+                   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                   SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+    <SOAP-ENV:Body>
+        <getMemberInformationResponse xmlns:namesp1="http://localhost/Member">
+            <s-gensym3 xsi:type="xsd:string">Luke Skywalker</s-gensym3>
+            <s-gensym3 xsi:type="xsd:string">active</s-gensym3>
+            <s-gensym3 xsi:type="xsd:float">9.64</s-gensym3>
+        </getMemberInformationResponse>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

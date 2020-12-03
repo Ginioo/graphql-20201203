@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<definitions xmlns:tns="http://localhost/Member"
+             xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+             xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+             xmlns="http://schemas.xmlsoap.org/wsdl/"
+             name="Member" targetNamespace="http://localhost/Member">
+    <message name="getMemberInformationInput">
+        <part name="id" type="xsd:short"/>
+        <part name="status" type="xsd:string"/>
+        <part name="unit" type="xsd:string"/>
+    </message>
+    <message name="getMemberInformationResponse">
+        <part name="name" type="xsd:string"/>
+        <part name="status" type="xsd:string"/>
+        <part name="bill" type="xsd:float"/>
+    </message>
+    <portType name="MemberInfoSoapPort">
+        <operation name="getMemberInformation">
+            <input message="tns:getMemberInformationInput"/>
+            <output message="tns:getMemberInformationResponse"/>
+        </operation>
+    </portType>
+    <binding name="MemberInfoSoapBinding" type="tns:MemberInfoSoapPort">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+        <operation name="getMemberInformation">
+            <soap:operation soapAction="http://localhost/Member#getMemberInformation"/>
+            <input>
+                <soap:body use="encoded" namespace="http://localhost/Member" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </input>
+            <output>
+                <soap:body use="encoded" namespace="http://localhost/Member" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+            </output>
+        </operation>
+    </binding>
+    <service name="Member">
+        <port name="MemberInfoSoapPort" binding="tns:MemberInfoSoapBinding">
+            <soap:address location="http://localhost/service/member"/>
+        </port>
+    </service>
+</definitions>

@@ -13,7 +13,14 @@ export const theme = vsDark;
 
 <img src={iconGraphQL} alt="GraphQL" style={{ height: 100, width: 100}} />
 
-###### 2020.11.26
+###### 2020.12.03
+
+---
+
+- What's GraphQL?
+- GraphQL Basics
+- Setup a GraphQL service
+- SOAP x REST x GraphQL
 
 ---
 
@@ -24,6 +31,7 @@ export const theme = vsDark;
 - a query language for your API
 - a server-side runtime for executing queries
 - It isn't tied to any specific database or storage engine
+- It supports more 20+ languages
 
 ---
 
@@ -70,7 +78,7 @@ To lookup customers with these information
 
 ---
 
-⏪🔄 Play again 😛
+⏪🔄 Just kidding 😛
 
 ---
 
@@ -145,28 +153,53 @@ $ node src/index.js
 
 ---
 
-### REST & GraphQL
+## SOAP x REST x GraphQL
+#### 時代的眼淚 x 正在流淚 x 心好累?
 
 ---
 
-- to operate over a single endpoint via HTTP(S)
-- the least required request
+#### 舉例: 查詢 id=1000 這個會員的這個月的帳單金額
+
+---
+
+# SOAP
 
 ---
 
 <CodeSurfer>
 
-```js
-GET /customers?fields=id,name,products
+```html showNumbers file="./sample-5/soap.xml"
 ```
-```diff 1[15:39]
+```diff 35:39
+```
+```diff 23:34,36
+```
+```diff 17:22,25
+```
+```diff 7:16
 ```
 
 </CodeSurfer>
 
 ---
 
-#### 舉例: 查詢 id=1000 這個會員的這個月的帳單金額
+<CodeSurfer>
+
+```py
+  from zeep import Client
+
+  client = Client('http//localhost/member.wsdl')
+  result = client.getMemberInformation(1000, "active", "USD")
+```
+
+```xml file="./sample-5/soapResp.xml"
+```
+
+</CodeSurfer>
+
+---
+
+# REST
 
 ---
 
@@ -196,6 +229,13 @@ GET /member/1000?status=active&unit=USD&...
 </Step>
 
 </CodeSurferColumns>
+
+---
+
+# GraphQL
+
+- to operate over a single endpoint via HTTP(S)
+- the least required request
 
 ---
 
