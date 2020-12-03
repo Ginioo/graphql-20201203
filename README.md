@@ -1,4 +1,4 @@
-# Weekly sharing on 2020-11-26
+# Weekly sharing on 2020-12-03
 
 ## Topic: 
 GraphQL
